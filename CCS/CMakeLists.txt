@@ -172,5 +172,5 @@ def_library(msp_ccs
 export_package(GeoCon
   TARGETS MSPdtcc msp_ccs
   LIBRARIES MSPdtcc msp_ccs
-  INCLUDE_DIRECTORIES ${LIB_INC_DIR}
+  INCLUDE_DIRS ${LIB_INC_DIR}
   )
