@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 2.8)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules)
 
+include(def_library)
+include(export_package)
 
 # To get around Github's file size limits, we have to split this file into multiple pieces
 set(LARGE_DATA_FILE Und_min2.5x2.5_egm2008_WGS84_TideFree_reformatted)

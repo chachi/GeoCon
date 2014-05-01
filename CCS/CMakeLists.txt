@@ -1,6 +1,5 @@
 project(GEOCON_CCS)
 cmake_minimum_required(VERSION 2.8)
-include(def_library)
 
 set(DTCC_SRCS
   threads/CCSThreadMutex.cpp 
@@ -159,6 +158,7 @@ include_directories(${LIB_INC_DIR})
 def_library(MSPdtcc
   SOURCES ${DTCC_SRCS} ${CCSERVICE_SRCS}
   LINK_LIBS m
+  PACKAGE GeoCon
   )
 
 # Coordinate Conversion Service
@@ -166,4 +166,11 @@ def_library(msp_ccs
   SOURCES ${CCS_SRCS}
   DEPENDS MSPdtcc
   LINK_LIBS m
+  PACKAGE GeoCon
+  )
+
+export_package(GeoCon
+  TARGETS MSPdtcc msp_ccs
+  LIBRARIES MSPdtcc msp_ccs
+  INCLUDE_DIRECTORIES ${LIB_INC_DIR}
   )
