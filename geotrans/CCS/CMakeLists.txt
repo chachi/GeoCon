@@ -56,7 +56,7 @@ function(prepend_list src_list prefix)
   set(${src_list} ${tmp_list} PARENT_SCOPE)
 endfunction()
 
-prepend_list(DTCC_SRCS src/dtcc/CoordinateSystems/)
+prepend_list(DTCC_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/src/dtcc/CoordinateSystems/)
 
 set(CCS_SRCS src/CoordinateConversion/CoordinateConversionService.cpp)
 
@@ -97,7 +97,7 @@ set(CCSERVICE_SRCS
   Exception/ErrorMessages.cpp 
   Exception/WarningMessages.cpp
   )
-prepend_list(CCSERVICE_SRCS src/dtcc)
+prepend_list(CCSERVICE_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/src/dtcc)
 
 set(DTCC_INC_DIRS
   threads 
@@ -139,7 +139,7 @@ set(DTCC_INC_DIRS
   usng 
   utm
   )
-prepend_list(DTCC_INC_DIRS src/dtcc/CoordinateSystems)
+prepend_list(DTCC_INC_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src/dtcc/CoordinateSystems)
 
 set(CCS_INC_DIRS
   dtcc 
@@ -149,7 +149,7 @@ set(CCS_INC_DIRS
   dtcc/Enumerations 
   dtcc/Exception 
   )
-prepend_list(CCS_INC_DIRS src)
+prepend_list(CCS_INC_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 set(LIB_INC_DIR ${CCS_INC_DIRS} ${DTCC_INC_DIRS})
 include_directories(${LIB_INC_DIR})
