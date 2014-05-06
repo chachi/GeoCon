@@ -1,4 +1,5 @@
 project(geotrans)
+cmake_minimum_required(VERSION 2.8)
 
 # To get around Github's file size limits, we have to split this file into multiple pieces
 set(LARGE_DATA_FILE Und_min2.5x2.5_egm2008_WGS84_TideFree_reformatted)

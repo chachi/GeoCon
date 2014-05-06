@@ -1,6 +1,3 @@
-project(GEOCON_CCS)
-cmake_minimum_required(VERSION 2.8)
-
 set(DTCC_SRCS
   threads/CCSThreadMutex.cpp 
   threads/CCSThreadLock.cpp 
@@ -152,13 +149,15 @@ set(CCS_INC_DIRS
 prepend_list(CCS_INC_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 set(LIB_INC_DIR ${CCS_INC_DIRS} ${DTCC_INC_DIRS})
+set(GEOTRANS_INCLUDE_DIRS ${LIB_INC_DIR} CACHE INTERNAL "")
+set(GEOTRANS_LINK_DIRS ${CMAKE_CURRENT_BINARY_DIR} CACHE INTERNAL "")
 include_directories(${LIB_INC_DIR})
 
 # Datum library
 def_library(MSPdtcc
   SOURCES ${DTCC_SRCS} ${CCSERVICE_SRCS}
   LINK_LIBS m
-  PACKAGE GeoCon
+  PACKAGE GEOTRANS
   )
 
 # Coordinate Conversion Service
@@ -166,10 +165,10 @@ def_library(msp_ccs
   SOURCES ${CCS_SRCS}
   DEPENDS MSPdtcc
   LINK_LIBS m
-  PACKAGE GeoCon
+  PACKAGE GEOTRANS
   )
 
-export_package(GeoCon
+export_package(GEOTRANS
   TARGETS MSPdtcc msp_ccs
   LIBRARIES MSPdtcc msp_ccs
   INCLUDE_DIRS ${LIB_INC_DIR}
