@@ -11,11 +11,6 @@
 #include <miniglog/logging.h>
 namespace geocon {
 
-template <typename Scalar>
-Scalar radians(const Scalar& deg) {
-  return deg * M_PI / 180.;
-}
-
 static MSP::CCS::GeodeticParameters kEllipsoidParameters(
     MSP::CCS::CoordinateType::geodetic,
     MSP::CCS::HeightType::ellipsoidHeight);
