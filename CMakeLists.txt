@@ -25,8 +25,8 @@ def_library(geocon
   )
 
 export_package(GeoCon
-  TARGETS geocon
-  LIBRARIES geocon
+  TARGETS geocon MSPdtcc msp_ccs
+  LIBRARIES geocon MSPdtcc msp_ccs
   INCLUDE_DIRS ${GEOCON_INC_DIRS}
   LINK_DIRS ${GEOCON_LINK_DIRS}
   )
