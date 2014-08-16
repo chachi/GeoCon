@@ -1,3 +1,5 @@
+// Copyright (c) John Morrison, all rights reserved.  See the
+// accompanying LICENSE file for more information.
 #include <gtest/gtest.h>
 
 #include <geocon/geodetic2local.h>
