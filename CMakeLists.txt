@@ -55,9 +55,15 @@ set(GEOCON_INC_DIRS
   ${EIGEN3_INCLUDE_DIR})
 set(GEOCON_LINK_DIRS ${GEOTRANS_LINK_DIRS})
 
+set(GEOCON_SRCS
+  src/geodetic2local.cpp
+  src/geocon_init.cpp
+  src/geodetic2ecef.cpp
+  )
+
 include_directories(${GEOCON_INC_DIRS})
 def_library(geocon
-  SOURCES src/geodetic2local.cpp src/geocon_init.cpp
+  SOURCES ${GEOCON_SRCS}
   DEPENDS MSPdtcc msp_ccs
   LINK_LIBS ${MINIGLOG_LIBRARIES}
   PACKAGE GeoCon
